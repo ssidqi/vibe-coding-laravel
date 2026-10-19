@@ -3,6 +3,13 @@
 
 # Catatan perencanaan lokal, tidak perlu ikut di-commit
 /issues.md
+
+# Hasil generate Laravel Boost (dibuat ulang oleh `php artisan boost:install`)
+/boost.json
+/.mcp.json
+/opencode.json
+/.agents/
+/.claude/
 .env
 .env.backup
 .env.production

@@ -24,19 +24,29 @@
                 </a>
 
                 <div class="flex flex-wrap items-center gap-2">
-                    <a
-                        href="{{ route('dashboard') }}"
-                        @class([
-                            'rounded-lg px-3 py-2 text-sm font-medium transition',
-                            'bg-brand-amber text-brand-dark' => request()->routeIs('dashboard'),
-                            'text-brand-dark/70 hover:bg-brand-amber/20 hover:text-brand-dark' => ! request()->routeIs('dashboard'),
-                        ])
-                    >
-                        Dashboard
-                    </a>
+                    @php
+                        $navLinks = [
+                            ['route' => 'dashboard', 'label' => 'Dashboard', 'active' => request()->routeIs('dashboard')],
+                            ['route' => 'forecast.index', 'label' => 'Forecast 2030', 'active' => request()->routeIs('forecast.*')],
+                        ];
+                    @endphp
+
+                    @foreach ($navLinks as $link)
+                        <a
+                            href="{{ route($link['route']) }}"
+                            @class([
+                                'rounded-lg px-3 py-2 text-sm font-medium transition',
+                                'bg-brand-amber text-brand-dark' => $link['active'],
+                                'text-brand-dark/70 hover:bg-brand-amber/20 hover:text-brand-dark' => ! $link['active'],
+                            ])
+                            @if ($link['active']) aria-current="page" @endif
+                        >
+                            {{ $link['label'] }}
+                        </a>
+                    @endforeach
 
                     <x-button :href="route('lost.create')" variant="primary" size="sm">Posting Kehilangan</x-button>
-                    <x-button :href="route('found.create')" variant="secondary" size="sm">Posting Penemuan</x-button>
+                    <x-button :href="route('found.create')" variant="primary" size="sm">Posting Penemuan</x-button>
                 </div>
             </nav>
         </header>

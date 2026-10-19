@@ -19,7 +19,7 @@
             <x-button :href="route('lost.create')" variant="primary">
                 Posting Kehilangan Barang
             </x-button>
-            <x-button :href="route('found.create')" variant="secondary">
+            <x-button :href="route('found.create')" variant="primary">
                 Posting Penemuan Barang
             </x-button>
         </div>
@@ -92,7 +92,7 @@
                 <h2 id="found-items-heading" class="text-lg font-bold text-brand-dark sm:text-xl">Barang Ditemukan</h2>
                 <span class="rounded-full bg-brand-amber/30 px-2.5 py-1 text-xs font-semibold text-brand-dark">{{ $foundCount }} laporan</span>
             </div>
-            <x-button :href="route('found.create')" variant="secondary" size="sm">Posting Penemuan Barang</x-button>
+            <x-button :href="route('found.create')" variant="primary" size="sm">Posting Penemuan Barang</x-button>
         </div>
 
         @if ($foundItems->isEmpty())

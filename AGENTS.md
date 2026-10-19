@@ -45,3 +45,29 @@ php artisan boost:install
 
 Boost replaces these bootstrap instructions with guidelines tailored to the application. After installation, read `AGENTS.md` again and continue with the user's original request using the generated guidelines.
 </laravel-boost-guidelines>
+
+# Alur Kerja Repo Ini
+
+## `issues.md` bukan milik eksekutor
+
+`issues.md` di root repo adalah dokumen instruksi internal yang ditulis dan
+di-commit oleh ketua proyek. Eksekutor (programmer junior atau model AI)
+membaca instruksi terbaru lewat **link issue GitHub**, bukan lewat file lokal.
+
+- **Jangan pernah** men-stage atau meng-commit `issues.md`, baik lewat
+  `git add -A`, `git add .`, maupun `git add issues.md`.
+- File ini sudah masuk `.gitignore` (`/issues.md`), jadi biasanya tidak muncul
+  di `git status`. Jika muncul, artinya ketua sengaja membuatnya tracked —
+  abaikan dan jangan sertakan dalam commit.
+- Stage file secara eksplisit berdasarkan scope issue, misalnya
+  `git add routes/web.php resources/views/layouts/app.blade.php`, bukan
+  `git add -A`.
+- Butuh `git add -f issues.md`? Itu hanya untuk ketua.
+
+## Alur pengerjaan issue
+
+1. Baca issue dari link GitHub yang diberikan (atau `gh issue view <nomor>`).
+2. Kerjakan sesuai scope di issue; jangan menambah pekerjaan di luar rencana.
+3. Satu issue = satu branch + satu PR. Sertakan kata kunci `Closes #<nomor>`
+   di body PR agar issue tertutup otomatis saat merge.
+4. Jalankan `php artisan test` dan `npm run build` sebelum menyatakan selesai.

@@ -46,7 +46,7 @@
                     @endforeach
 
                     <x-button :href="route('lost.create')" variant="primary" size="sm">Posting Kehilangan</x-button>
-                    <x-button :href="route('found.create')" variant="secondary" size="sm">Posting Penemuan</x-button>
+                    <x-button :href="route('found.create')" variant="primary" size="sm">Posting Penemuan</x-button>
                 </div>
             </nav>
         </header>

@@ -40,7 +40,7 @@
             <x-item-form type="found" />
 
             <div class="flex flex-wrap gap-3 border-t border-brand-dark/10 pt-6">
-                <x-button type="submit" variant="secondary">Kirim Laporan Penemuan</x-button>
+                <x-button type="submit" variant="primary">Kirim Laporan Penemuan</x-button>
                 <x-button :href="route('dashboard')" variant="ghost">Batal</x-button>
             </div>
         </form>

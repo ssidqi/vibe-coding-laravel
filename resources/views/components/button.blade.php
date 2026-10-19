@@ -6,11 +6,11 @@
 ])
 
 @php
-    // Palet brand: primary = rust (aksi utama), secondary = dark (aksi kedua),
-    // ghost = netral di atas latar terang. Nilai hex hanya ada di @theme app.css.
+    // Palet brand: primary = rust (aksi utama) dan ghost = netral di atas latar
+    // terang. Semua tombol aksi sengaja memakai primary agar warnanya seragam;
+    // nilai hex hanya ada di @theme app.css.
     $variants = [
         'primary' => 'bg-brand-rust text-white shadow-sm hover:bg-brand-rust/90 focus-visible:outline-brand-rust',
-        'secondary' => 'bg-brand-dark text-brand-amber shadow-sm hover:bg-brand-dark/90 focus-visible:outline-brand-dark',
         'ghost' => 'bg-white text-brand-dark ring-1 ring-inset ring-brand-dark/20 hover:bg-brand-amber/15 focus-visible:outline-brand-dark',
     ];
 

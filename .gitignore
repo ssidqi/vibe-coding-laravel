@@ -1,5 +1,8 @@
 *.log
 .DS_Store
+
+# Catatan perencanaan lokal, tidak perlu ikut di-commit
+/issues.md
 .env
 .env.backup
 .env.production

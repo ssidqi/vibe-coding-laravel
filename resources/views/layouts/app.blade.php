@@ -27,7 +27,6 @@
                     @php
                         $navLinks = [
                             ['route' => 'dashboard', 'label' => 'Dashboard', 'active' => request()->routeIs('dashboard')],
-                            ['route' => 'forecast.index', 'label' => 'Forecast 2030', 'active' => request()->routeIs('forecast.*')],
                         ];
                     @endphp
 

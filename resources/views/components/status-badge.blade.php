@@ -1,18 +1,20 @@
 @props(['status'])
 
 @php
+    // Tiga status memakai tiga warna brand, semua teks dipilih agar kontras
+    // dengan latarnya (bukan bergantung pada warna saja — label tetap dibaca).
     $statuses = [
         'lost' => [
             'label' => 'Hilang',
-            'classes' => 'bg-rose-100 text-rose-700 ring-rose-200',
+            'classes' => 'bg-brand-rust text-white ring-brand-rust/40',
         ],
         'found' => [
             'label' => 'Ditemukan',
-            'classes' => 'bg-emerald-100 text-emerald-700 ring-emerald-200',
+            'classes' => 'bg-brand-amber text-brand-dark ring-brand-amber/60',
         ],
         'claimed' => [
             'label' => 'Diklaim',
-            'classes' => 'bg-amber-100 text-amber-700 ring-amber-200',
+            'classes' => 'bg-brand-dark text-brand-amber ring-brand-dark/40',
         ],
     ];
 

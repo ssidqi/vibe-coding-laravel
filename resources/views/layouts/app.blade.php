@@ -8,18 +8,18 @@
         @fonts
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="flex min-h-screen flex-col bg-slate-50 text-slate-900 antialiased">
-        <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <body class="flex min-h-screen flex-col bg-brand-amber/5 text-brand-dark antialiased">
+        <header class="sticky top-0 z-30 border-b border-brand-dark/10 bg-white/90 backdrop-blur">
             <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-3 sm:px-6 lg:px-8">
                 <a href="{{ route('dashboard') }}" class="flex items-center gap-2.5">
-                    <span class="flex size-9 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm">
+                    <span class="flex size-9 items-center justify-center rounded-xl bg-brand-rust text-brand-amber shadow-sm">
                         <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
                         </svg>
                     </span>
                     <span class="leading-tight">
-                        <span class="block text-sm font-bold text-slate-900">Lost &amp; Found</span>
-                        <span class="block text-xs text-slate-500">Barang hilang &amp; ditemukan</span>
+                        <span class="block text-sm font-bold text-brand-dark">Lost &amp; Found</span>
+                        <span class="block text-xs text-brand-dark/60">Barang hilang &amp; ditemukan</span>
                     </span>
                 </a>
 
@@ -28,34 +28,38 @@
                         href="{{ route('dashboard') }}"
                         @class([
                             'rounded-lg px-3 py-2 text-sm font-medium transition',
-                            'bg-slate-100 text-slate-900' => request()->routeIs('dashboard'),
-                            'text-slate-600 hover:bg-slate-100 hover:text-slate-900' => ! request()->routeIs('dashboard'),
+                            'bg-brand-amber text-brand-dark' => request()->routeIs('dashboard'),
+                            'text-brand-dark/70 hover:bg-brand-amber/20 hover:text-brand-dark' => ! request()->routeIs('dashboard'),
                         ])
                     >
                         Dashboard
                     </a>
 
-                    <x-button :href="route('lost.create')" variant="danger" size="sm">Posting Kehilangan</x-button>
-                    <x-button :href="route('found.create')" variant="success" size="sm">Posting Penemuan</x-button>
+                    <x-button :href="route('lost.create')" variant="primary" size="sm">Posting Kehilangan</x-button>
+                    <x-button :href="route('found.create')" variant="secondary" size="sm">Posting Penemuan</x-button>
                 </div>
             </nav>
         </header>
 
         <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
             @if (session('success'))
-                <div class="mb-6 flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
-                    <svg class="mt-0.5 size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15L15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                <div class="mb-6 flex items-start gap-3 rounded-xl border border-brand-amber bg-brand-amber/25 p-4 text-sm text-brand-dark">
+                    <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-rust text-brand-amber">
+                        <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15L15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </span>
                     <p class="font-medium">{{ session('success') }}</p>
                 </div>
             @endif
 
             @if (session('error'))
-                <div class="mb-6 flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-800">
-                    <svg class="mt-0.5 size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.75h.008M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                <div class="mb-6 flex items-start gap-3 rounded-xl border border-brand-rust/30 bg-brand-rust/10 p-4 text-sm text-brand-rust">
+                    <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-brand-rust text-brand-amber">
+                        <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.75h.008M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </span>
                     <p class="font-medium">{{ session('error') }}</p>
                 </div>
             @endif
@@ -63,8 +67,8 @@
             @yield('content')
         </main>
 
-        <footer class="border-t border-slate-200 bg-white">
-            <div class="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <footer class="border-t border-brand-dark/10 bg-brand-dark">
+            <div class="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-6 text-xs text-brand-amber/80 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
                 <p>&copy; {{ now()->year }} {{ config('app.name') }} — aplikasi barang hilang &amp; ditemukan.</p>
                 <p>Laravel {{ Illuminate\Foundation\Application::VERSION }} · MariaDB</p>
             </div>

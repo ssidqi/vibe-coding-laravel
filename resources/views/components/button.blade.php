@@ -6,11 +6,12 @@
 ])
 
 @php
+    // Palet brand: primary = rust (aksi utama), secondary = dark (aksi kedua),
+    // ghost = netral di atas latar terang. Nilai hex hanya ada di @theme app.css.
     $variants = [
-        'primary' => 'bg-indigo-600 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline-indigo-600',
-        'danger' => 'bg-rose-600 text-white shadow-sm hover:bg-rose-500 focus-visible:outline-rose-600',
-        'success' => 'bg-emerald-600 text-white shadow-sm hover:bg-emerald-500 focus-visible:outline-emerald-600',
-        'ghost' => 'bg-white text-slate-700 ring-1 ring-inset ring-slate-300 hover:bg-slate-50 focus-visible:outline-slate-400',
+        'primary' => 'bg-brand-rust text-white shadow-sm hover:bg-brand-rust/90 focus-visible:outline-brand-rust',
+        'secondary' => 'bg-brand-dark text-brand-amber shadow-sm hover:bg-brand-dark/90 focus-visible:outline-brand-dark',
+        'ghost' => 'bg-white text-brand-dark ring-1 ring-inset ring-brand-dark/20 hover:bg-brand-amber/15 focus-visible:outline-brand-dark',
     ];
 
     $sizes = [
@@ -18,7 +19,7 @@
         'md' => 'px-4 py-2.5 text-sm',
     ];
 
-    $classes = 'inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 '
+    $classes = 'inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 '
         . ($variants[$variant] ?? $variants['primary'])
         . ' '
         . ($sizes[$size] ?? $sizes['md']);
